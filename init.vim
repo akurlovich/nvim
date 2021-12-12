@@ -31,6 +31,7 @@ call plug#begin("~/.vim/plugged")
                
 " GIT
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'tpope/vim-fugitive'
   
 
 call plug#end()
@@ -63,6 +64,10 @@ set mouse=a  " mouse support
 syntax enable
 "colorscheme dracula
 colorscheme PaperColor
+
+"GIT Airline
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#branch#enabled=1
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
