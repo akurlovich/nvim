@@ -2,6 +2,7 @@ call plug#begin("~/.vim/plugged")
   " Theme
   Plug 'dracula/vim'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'fratajczak/one-monokai-vim'
 
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,6 +34,8 @@ call plug#begin("~/.vim/plugged")
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tpope/vim-fugitive'
   
+"Stratify - project manager
+  Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -64,6 +67,7 @@ set mouse=a  " mouse support
 syntax enable
 "colorscheme dracula
 colorscheme PaperColor
+"colorscheme one-monokai
 
 "GIT Airline
 let g:airline#extensions#hunks#enabled=0
@@ -116,6 +120,8 @@ function! OpenTerminal()
 endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 
+"Coc complete
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -129,3 +135,15 @@ endfunction
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Stratify config
+let g:startify_session_dir = '~/.config/nvim/session'
+let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['   Files']            },
+          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ ]
+let g:startify_bookmarks = [
+            \ { 'i': '~/.config/nvim/init.vim' },
+            \ ]
