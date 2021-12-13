@@ -3,6 +3,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'dracula/vim'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'fratajczak/one-monokai-vim'
+  Plug 'phanviet/vim-monokai-pro'
 
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -64,12 +65,15 @@ set autoindent
 set mouse=a  " mouse support
 
 " Theme
-syntax enable
+"syntax enable
 "colorscheme dracula
-colorscheme PaperColor
+"colorscheme PaperColor
 "colorscheme one-monokai
-
 "GIT Airline
+"set termguicolors
+colorscheme monokai_pro
+
+
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
 
