@@ -4,6 +4,8 @@ call plug#begin("~/.vim/plugged")
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'fratajczak/one-monokai-vim'
   Plug 'phanviet/vim-monokai-pro'
+  Plug 'tomasiser/vim-code-dark'
+  Plug 'mhartington/oceanic-next'
 
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -29,7 +31,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'nvim-telescope/telescope.nvim'
 
   Plug 'jiangmiao/auto-pairs'
-"  Plug 'folke/which-key.nvim'
+  Plug 'folke/which-key.nvim'
                
 " GIT
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -37,15 +39,11 @@ call plug#begin("~/.vim/plugged")
   
 "Stratify - project manager
   Plug 'mhinz/vim-startify'
+"  Plug 'turbio/bracey.vim'
 
 call plug#end()
 
-" Enable theming support
-"if (has(termguicolors))
-" set termguicolors
-"endif
-
-syntax on
+"syntax on
 set number
 set relativenumber
 set ignorecase      " ignore case
@@ -63,15 +61,37 @@ set virtualedit=all
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent
 set mouse=a  " mouse support
+"set so=999
+set cursorline
+set nostartofline
+hi CursorLine cterm=underline
 
 " Theme
-"syntax enable
+syntax enable            
+set termguicolors
+set t_Co=256    
+"set t_ut=
+let g:codedark_term256=1
+"set t_8f=^[[38;2;%lu;%lu;%lum
+"set t_8b=^[[48;2;%lu;%lu;%lum
+set background=dark
+let g:airline_theme = 'codedark'  
+"let g:airline_theme='oceanicnext'   
 "colorscheme dracula
 "colorscheme PaperColor
-"colorscheme one-monokai
+colorscheme one-monokai
+
+"colorscheme codedark
+"
+"if (has("termguicolors"))
+" set termguicolors
+"endif
+
+"colorscheme OceanicNext
+
 "GIT Airline
 "set termguicolors
-colorscheme monokai_pro
+"colorscheme monokai_pro
 
 
 let g:airline#extensions#hunks#enabled=0
@@ -151,3 +171,26 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { 'i': '~/.config/nvim/init.vim' },
             \ ]
+let g:startify_custom_header = [
+        \ '   _  __     _      ',
+        \ '  / |/ /  __(_)_ _  ',
+        \ ' /    / |/ / /  ` \ ',
+        \ '/_/|_/|___/_/_/_/_/ ',
+        \]
+
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#enabled = 1           " enable airline tabline
+let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
+let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
+let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab
+let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right
+let g:airline#extensions#tabline#show_buffers = 1      " dont show buffers in the tabline
+let g:airline#extensions#tabline#tab_min_count = 1     " minimum of 2 tabs needed to display the tabline
+let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
+let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers
+let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+map gn :bn<cr>
+map gp :bp<cr>
