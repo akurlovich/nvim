@@ -1,7 +1,9 @@
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
+--  use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
+--  use {'kyazdani42/nvim-web-devicons'}
+  use {'Mofiqul/vscode.nvim'}
   use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate", event = "BufWinEnter", config = "require('treesitter-config')"}
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}, event = "BufWinEnter", config = "require('lualine-config')"}
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons', event = "BufWinEnter", config = "require('bufferline-config')"}
@@ -26,7 +28,7 @@ return require('packer').startup(function(use)
       require('gitsigns').setup {current_line_blame = true}
     end
   }
-  use {'glepnir/dashboard-nvim', cmd = "Dashboard", config = "require('dashboard-config')"}
+--  use {'glepnir/dashboard-nvim', cmd = "Dashboard", config = "require('dashboard-config')"}
   use {"lukas-reineke/indent-blankline.nvim", config = "require('blankline-config')", event = "BufRead"}
   use {'lukas-reineke/format.nvim', config = "require('format-config')", cmd = "Format"}
   use {"akinsho/toggleterm.nvim", config = "require('toggleterm-config')"}
