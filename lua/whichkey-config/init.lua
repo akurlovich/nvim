@@ -4,8 +4,8 @@ wk.setup {
     marks = false,
     registers = false,
     spelling = {enabled = false, suggestions = 20},
-    presets = {operators = false, motions = false, text_objects = false, windows = false, nav = false, z = false, g = false}
-  }
+    presets = {operators = false, motions = false, text_objects = false, windows = false, nav = false, z = false , g = false}
+  },
 }
 local Terminal = require('toggleterm.terminal').Terminal
 local toggle_float = function()
@@ -42,7 +42,9 @@ local mappings = {
     e = {'<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line Diagnostics"},
     n = {'<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic"},
     N = {'<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic"},
-  }
+  },
+  c = {":CommentToggle<cr>", "Comment line"},
+  g = {":LazyGit<cr>", "LazyGit"}
 }
 local opts = {prefix = '<leader>'}
 wk.register(mappings, opts)
